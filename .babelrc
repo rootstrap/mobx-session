@@ -1,0 +1,30 @@
+{
+  "presets": [
+    "react",
+    "stage-1",
+  ],
+  "env": {
+    "development": {
+      "presets": [
+        "latest"
+      ],
+      "plugins": ["transform-class-properties"],
+    },
+    "production": {
+      "presets": [
+        ["latest", {
+          "es2015": {
+            "modules": false
+          }
+        }],
+      ],
+      "plugins": ["transform-class-properties"],
+    },
+    "test": {
+      "presets": [
+        "latest"
+      ],
+      "plugins": ["transform-class-properties"],
+    }
+  },
+}
