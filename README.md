@@ -104,7 +104,7 @@ Deletes the session object from the store and the storage
 
 Returns the session object saved if there's any, if there's not it returns null.
 
-### hasSession(): boolean
+### hasSession: boolean
 
 Returns true if there's a session object saved and false if there's not.
 
