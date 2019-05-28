@@ -15,23 +15,16 @@ class Store {
     });
   }
 
-  getSession = () => {
-    if (!this.hasSession) {
-      return undefined;
-    }
-    return Storage.get(SESSION_KEY);
-  }
-
   saveSession = (session) => {
     Storage.set(SESSION_KEY, session);
-    runInAction('Save Session', () => {
+    runInAction(() => {
       this.session = session;
     });
   }
 
   deleteSession = () => {
     Storage.remove(SESSION_KEY);
-    runInAction('Delete Session', () => {
+    runInAction(() => {
       this.session = null;
     });
   }
