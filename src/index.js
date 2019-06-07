@@ -1,34 +1,39 @@
 import { extendObservable, runInAction } from 'mobx';
-
 import { Storage } from './storage';
 
 const SESSION_KEY = 'session';
+const DEFAULT_INSTANCE_NAME = 'mobx-session';
 
 class Store {
   constructor() {
-    const session = Storage.get(SESSION_KEY) || null;
     extendObservable(this, {
-      session,
-      get hasSession() {
-        return this.session !== null;
-      },
+      hasSession: false,
     });
   }
 
-  saveSession = (session) => {
-    Storage.set(SESSION_KEY, session);
+  initialize = async (options = { name: DEFAULT_INSTANCE_NAME }) => {
+    Storage.initialize(options);
+    const hasSession = await this.getSession() !== null;
     runInAction(() => {
-      this.session = session;
+      this.hasSession = hasSession;
     });
   }
+
+  saveSession = async (session) => {
+    await Storage.set(SESSION_KEY, session);
+    runInAction(() => {
+      this.hasSession = true;
+    });
+  }
+
+  getSession = () => Storage.get(SESSION_KEY);
 
   deleteSession = () => {
     Storage.remove(SESSION_KEY);
     runInAction(() => {
-      this.session = null;
+      this.hasSession = false;
     });
   }
 }
 
-const SessionStore = new Store();
-export default SessionStore;
+export default new Store();

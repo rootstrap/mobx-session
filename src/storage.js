@@ -1,17 +1,23 @@
-class LocalStorage {
+import localforage from 'localforage';
+
+class StorageClass {
   constructor() {
-    this.storage = window.localStorage;
+    this.storage = null;
+  }
+
+  initialize(options) {
+    this.storage = localforage.createInstance(options);
   }
 
   get(key) {
-    return JSON.parse(this.storage.getItem(key));
+    return this.storage.getItem(key);
   }
 
   set(key, item) {
     if (item === undefined) {
       return;
     }
-    this.storage.setItem(key, JSON.stringify(item));
+    this.storage.setItem(key, item);
   }
 
   remove(key) {
@@ -19,4 +25,4 @@ class LocalStorage {
   }
 }
 
-export const Storage = new LocalStorage();
+export const Storage = new StorageClass();

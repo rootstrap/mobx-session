@@ -7,6 +7,7 @@
     "build": "npm run clean && babel src --out-dir dist",
     "test": "jest /src/__tests__",
     "test:watch": "jest /src/__tests__ --watch",
+    "test:cover": "npm run test -- --coverage",
     "lint": "eslint src",
     "clean": "rimraf dist",
     "prepublishOnly": "npm run build"
@@ -43,6 +44,7 @@
     "babel-preset-latest": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
     "babel-register": "^6.26.0",
+    "coveralls": "^3.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-import": "^2.17.3",
     "jest": "^24.8.0",
@@ -53,7 +55,9 @@
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2"
   },
-  "dependencies": {},
+  "dependencies": {
+    "localforage": "^1.7.3"
+  },
   "peerDependencies": {
     "react": "^16.4.0"
   }
