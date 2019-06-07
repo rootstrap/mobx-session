@@ -2,7 +2,7 @@
 
 Mobx Session helps you manage your session data providing an API to save and access your info whenever and wherever you want.
 
-The stored data will be saved inside a [mobx store](https://mobx.js.org/best/store.html) and the [local storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
+The stored data will be saved with [localforage](https://github.com/localForage/localForage).
 
 ## Installation
 yarn:
@@ -16,6 +16,28 @@ npm:
 ## Usage
 
 It's really straight forward to use.
+
+First you must initialize the Storage. For that, you should call
+
+```javascript
+import SessionStore from 'mobx-session';
+
+SessionStore.initialize();
+```
+
+**This should be called before any other method call, so I would recommend putting it on the index.js or App of your site.**
+
+There are several config options to customize this method, go to the [API doc](https://github.com/rootstrap/mobx-session#initializeconfig-object-promise) to see more.
+
+For example
+
+```javascript
+import SessionStore from 'mobx-session';
+
+SessionStore.initialize({ name: 'my-app-name' });
+```
+
+Then, you can use it wherever you want.
 
 ### Inside a Component
 
@@ -92,17 +114,23 @@ Coming soon
 
 ## API
 
-### saveSession(session: object): void
+### initialize(config: object): Promise
+
+Initialize an instance of the storage inside the session.
+
+Options can be the ones listed in the [localforage library](https://github.com/localForage/localForage#configuration)
+
+### saveSession(session: object): Promise
 
 Saves the session object in the store and storage
 
-### deleteSession(): void
+### deleteSession(): Promise
 
 Deletes the session object from the store and the storage
 
-### session: object
+### getSession(): Promise(session: object)
 
-Returns the session object saved if there's any, if there's not it returns null.
+Returns the session object saved if there's any
 
 ### hasSession: boolean
 
