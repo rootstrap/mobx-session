@@ -1,15 +1,15 @@
 ## Contributing ##
 
-You can contribute to this repo if you have an issue, found a bug or think there's some functionality required that would add value to the gem. To do so, please check if there's not already an [issue](https://github.com/rootstrap/active-storage-base64/issues) for that, if you find there's not, create a new one with as much detail as possible.
+You can contribute to this repo if you have an issue, found a bug or think there's some functionality required that would add value to the gem. To do so, please check if there's not already an [issue](https://github.com/rootstrap/mobx-session/issues) for that, if you find there's not, create a new one with as much detail as possible.
 
 If you want to contribute with code as well, please follow the next steps:
 
-1. Read, understand and agree to our [code of conduct](https://github.com/rootstrap/active-storage-base64/blob/master/CODE_OF_CONDUCT.md)
+1. Read, understand and agree to our [code of conduct](https://github.com/rootstrap/mobx-session/blob/master/CODE_OF_CONDUCT.md)
 2. [Fork the repo](https://help.github.com/articles/about-forks/)
 3. Clone the project into your machine:
-`$ git clone git@github.com:[YOUR GITHUB USERNAME]/active-storage-base64.git`
+`$ git clone git@github.com:[YOUR GITHUB USERNAME]/mobx-session.git`
 4. Access the repo:
-`$ cd active-storage-base64`
+`$ cd mobx-session`
 5. Create your feature/bugfix branch:
 `$ git checkout -b your_new_feature`
 or
@@ -30,9 +30,7 @@ All tests must pass. If all tests (both code analysis and rspec) do pass, then y
 Some helpful guides that will help you know how we work:
 1. [Code review](https://github.com/rootstrap/tech-guides/tree/master/code-review)
 2. [GIT workflow](https://github.com/rootstrap/tech-guides/tree/master/git)
-3. [Ruby style guide](https://github.com/rootstrap/tech-guides/tree/master/ruby)
-4. [Rails style guide](https://github.com/rootstrap/tech-guides/blob/master/ruby/rails.md)
-5. [RSpec style guide](https://github.com/rootstrap/tech-guides/blob/master/ruby/rspec/README.md)
+3. [Javascript](https://github.com/airbnb/javascript)
 
 For more information or guides like the ones mentioned above, please check our [tech guides](https://github.com/rootstrap/tech-guides). Keep in mind that the more you know about these guides, the easier it will be for your code to get approved and merged.
 
