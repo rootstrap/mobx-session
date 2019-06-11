@@ -4,31 +4,54 @@ import SessionStore from '../index';
 
 const SESSION = { token: 'abc123' };
 
-describe('SessionStore', function () {
-  beforeEach(async function () {
+describe('SessionStore', () => {
+  beforeEach(async () => {
     await SessionStore.initialize();
     await SessionStore.deleteSession();
   });
 
-  test('saves session', async () => {
-    await SessionStore.saveSession(SESSION);
-    const session = await SessionStore.getSession();
-    expect(session).toStrictEqual(SESSION);
+  describe('saveSession', () => {
+    let session;
+
+    beforeEach(async () => {
+      await SessionStore.saveSession(SESSION);
+      session = await SessionStore.getSession();
+    });
+
+    it('should have saved the passed data', () => {
+      expect(session).toStrictEqual(SESSION);
+    });
   });
 
-  test('deletes session', async () => {
-    await SessionStore.saveSession(SESSION);
-    await SessionStore.deleteSession();
-    const session = await SessionStore.getSession();
-    expect(session).toBe(null);
+  describe('deleteSession', () => {
+    let session;
+
+    beforeEach(async () => {
+      await SessionStore.saveSession(SESSION);
+      await SessionStore.deleteSession();
+      session = await SessionStore.getSession();
+    });
+
+    it('should have the session as null', () => {
+      expect(session).toBe(null);
+    });
   });
 
-  test('has session', async () => {
-    await SessionStore.saveSession(SESSION);
-    expect(SessionStore.hasSession).toBe(true);
-  });
+  describe('hasSession', () => {
+    describe('when the session has been already saved', () => {
+      beforeEach(async () => {
+        await SessionStore.saveSession(SESSION);
+      });
 
-  test('doesnt have session', () => {
-    expect(SessionStore.hasSession).toBe(false);
+      it('should return true', () => {
+        expect(SessionStore.hasSession).toBe(true);
+      });
+    });
+
+    describe('when the session has not been saved', () => {
+      it('should return false', () => {
+        expect(SessionStore.hasSession).toBe(false);
+      });
+    });
   });
 });
