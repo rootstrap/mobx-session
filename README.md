@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/rootstrap/mobx-session.svg?branch=master)](https://travis-ci.com/rootstrap/mobx-session)
+
 # Mobx Session
 
 Mobx Session helps you manage your session data providing an API to save and access your info whenever and wherever you want.
