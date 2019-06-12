@@ -114,7 +114,7 @@ class UserStore {
 
 ## Examples
 
-Coming soon
+[Basic example using React](examples/example)
 
 ## API
 
