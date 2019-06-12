@@ -6,21 +6,25 @@ import sessionApi from 'api/sessionApi';
 class Store {
   constructor() {
     SessionStore.initialize({ name: 'example-app' });
-    const user = SessionStore.getSession() || null;
+
     extendObservable(this, {
-      user,
+      user: null,
       loginError: false,
       logoutError: false,
       get loggedIn() {
-        return this.user !== null && SessionStore.session !== null;
-      },
+        return this.user !== null && SessionStore.hasSession;
+      }
+    });
+
+    runInAction('Load user', async () => {
+      this.user = await SessionStore.getSession();
     });
   }
 
-  saveUser = (user) => {
-    SessionStore.saveSession({ user });
+  saveUser = (session) => {
+    SessionStore.saveSession(session);
     runInAction('Save user', () => {
-      this.user = user;
+      this.user = session;
     });
   }
 

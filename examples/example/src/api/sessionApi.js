@@ -7,9 +7,9 @@ const login = (user) => {
       lastName: 'test'
     }
   };
-  return new Promise(resolve => setTimeout(resolve(response), 100));
+  return new Promise(resolve => setTimeout(resolve(response), 300));
 };
 
-const logout = () => new Promise(resolve => setTimeout(resolve, 100));
+const logout = () => new Promise(resolve => setTimeout(resolve, 300));
 
 export default { login, logout };
