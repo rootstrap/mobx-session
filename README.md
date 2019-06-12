@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.com/rootstrap/mobx-session.svg?branch=master)](https://travis-ci.com/rootstrap/mobx-session)
+[![Maintainability](https://api.codeclimate.com/v1/badges/7779ab5005e559a3104a/maintainability)](https://codeclimate.com/github/rootstrap/active-storage-base64/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/7779ab5005e559a3104a/test_coverage)](https://codeclimate.com/github/rootstrap/active-storage-base64/test_coverage)
 
 # Mobx Session
 
