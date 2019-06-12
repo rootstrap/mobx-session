@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "10"
+cache: npm
+script:
+  - "npm run test:cover"
+  - "npm run lint"
+
+#TODO: add code climate

@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/rootstrap/mobx-session.svg?branch=master)](https://travis-ci.com/rootstrap/mobx-session)
+
 # Mobx Session
 
 Mobx Session helps you manage your session data providing an API to save and access your info whenever and wherever you want.
@@ -47,15 +49,15 @@ import SessionStore from 'mobx-session';
 const MyComponent = observer(() => (
   <div>
   {
-    SessionStore.hasSession 
-    ? <p>Hello!</p> 
+    SessionStore.hasSession
+    ? <p>Hello!</p>
     : <p>Login</p>
   }
   </div>
 ))
 ```
 
-You can use the decorator sintax
+You can use the decorator syntax
 
 ```javascript
 import SessionStore from 'mobx-session';
@@ -64,8 +66,8 @@ import SessionStore from 'mobx-session';
 const MyComponent = () => (
   <div>
   {
-    SessionStore.hasSession 
-    ? <p>Hello!</p> 
+    SessionStore.hasSession
+    ? <p>Hello!</p>
     : <p>Login</p>
   }
   </div>
@@ -92,7 +94,7 @@ class UserStore {
 }
 ```
 
-You can also use the decorator sintax
+You can also use the decorator syntax
 
 ```javascript
 import SessionStore from 'mobx-session';
@@ -106,7 +108,7 @@ class UserStore {
 }
 ```
 
-*TIP: inside a store, don't forget to use it inside a computed value or an autorun so you don't loose the reference.*
+*TIP: inside a store, don't forget to use it inside a computed value or an auto-run so you don't loose the reference.*
 
 ## Examples
 
