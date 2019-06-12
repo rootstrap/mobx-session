@@ -1,8 +1,7 @@
 import { extendObservable, runInAction } from 'mobx';
 import { Storage } from './storage';
 
-const SESSION_KEY = 'session';
-const DEFAULT_INSTANCE_NAME = 'mobx-session';
+import { DEFAULT_INSTANCE_NAME, SESSION_KEY } from './constants';
 
 class Store {
   constructor() {
