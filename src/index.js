@@ -10,12 +10,12 @@ class Store {
     });
   }
 
-  initialize = (options = { name: DEFAULT_INSTANCE_NAME }) => {
+  initialize = async (options = { name: DEFAULT_INSTANCE_NAME }) => {
     Storage.initialize(options);
-    // const hasSession = await this.getSession() !== null;
-    // runInAction(() => {
-    //   this.hasSession = hasSession;
-    // });
+    const hasSession = await this.getSession() !== null;
+    runInAction(() => {
+      this.hasSession = hasSession;
+    });
   }
 
   saveSession = async (session) => {
