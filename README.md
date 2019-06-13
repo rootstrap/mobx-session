@@ -29,7 +29,7 @@ import SessionStore from 'mobx-session';
 SessionStore.initialize();
 ```
 
-**This should be called before any other method call, so I would recommend putting it on the index.js or App of your site.**
+**This should be called before any other method call, so I would recommend putting it on the index.js or App of your site, or in the top of another Store that uses SessionStore (like in [this example](examples/example/src/stores/UserStore.js)).**
 
 There are several config options to customize this method, go to the [API doc](https://github.com/rootstrap/mobx-session#initializeconfig-object-promise) to see more.
 
@@ -114,7 +114,7 @@ class UserStore {
 
 ## Examples
 
-Coming soon
+[Basic example using React](examples/example)
 
 ## API
 
