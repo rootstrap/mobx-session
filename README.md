@@ -48,15 +48,21 @@ Then, you can use it wherever you want.
 ```javascript
 import SessionStore from 'mobx-session';
 
-const MyComponent = observer(() => (
-  <div>
-  {
-    SessionStore.hasSession
-    ? <p>Hello!</p>
-    : <p>Login</p>
+const MyComponent = observer(() => {
+  if (SessionStore.initialized) {
+    return (
+      <div>
+        {
+          SessionStore.hasSession
+          ? <p>Hello!</p>
+          : <p>Login</p>
+        }
+      </div>
+    );
   }
-  </div>
-))
+
+  return null;
+})
 ```
 
 You can use the decorator syntax
@@ -65,18 +71,24 @@ You can use the decorator syntax
 import SessionStore from 'mobx-session';
 
 @observer
-const MyComponent = () => (
-  <div>
-  {
-    SessionStore.hasSession
-    ? <p>Hello!</p>
-    : <p>Login</p>
+const MyComponent = () => {
+  if (SessionStore.initialized) {
+    return (
+      <div>
+        {
+          SessionStore.hasSession
+          ? <p>Hello!</p>
+          : <p>Login</p>
+        }
+      </div>
+    );
   }
-  </div>
-)
+
+  return null;
+}
 ```
 
-*TIP: don't forget to make your component an observer so you don't loose the reference.*
+*TIP: don't forget to make your component an observer so you don't lose the reference.*
 
 ### Inside a Store
 
@@ -114,7 +126,8 @@ class UserStore {
 
 ## Examples
 
-[Basic example using React](examples/example)
+- [Basic example using React](examples/example)
+- [Example using React and React Router v4](examples/react-router-v4-example) that uses the session data to determine if a user can access a private route.
 
 ## API
 
@@ -135,6 +148,10 @@ Deletes the session object from the store and the storage
 ### getSession(): Promise(session: object)
 
 Returns the session object saved if there's any
+
+### initialized: boolean
+
+Returns true if the session store has been initialized. Could be useful to check this property before relying on other methods or properties from the store.
 
 ### hasSession: boolean
 

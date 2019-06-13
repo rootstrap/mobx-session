@@ -7,6 +7,7 @@ class Store {
   constructor() {
     extendObservable(this, {
       hasSession: false,
+      initialized: false,
     });
   }
 
@@ -14,6 +15,7 @@ class Store {
     Storage.initialize(options);
     const hasSession = await this.getSession() !== null;
     runInAction(() => {
+      this.initialized = true;
       this.hasSession = hasSession;
     });
   }
