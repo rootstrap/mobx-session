@@ -1,6 +1,6 @@
 {
   "name": "mobx-session",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Save your session with MobX, using IndexedDB, WebSQL, or localStorage",
   "main": "dist/index.js",
   "scripts": {
