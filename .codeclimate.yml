@@ -1,2 +1,2 @@
-- exclude_patterns:
+exclude_patterns:
   - "examples/"
